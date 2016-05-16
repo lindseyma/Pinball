@@ -5,7 +5,7 @@ class Ball{
     }
     
     public void display(){
-      ellipse(475, 675, 15, 15);    
+      ellipse(475, 675, 30, 30);    
     }
     
 }
