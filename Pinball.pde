@@ -21,6 +21,8 @@ void draw(){
     }*/
     Ball b = new Ball();  
     b.display();
+    b.BounceWall();
+    b.ChangeXY();
 }
 
 void menu(){
