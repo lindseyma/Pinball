@@ -1,13 +1,19 @@
 class Ball{
-
+<<<<<<< HEAD
+    
+=======
+>>>>>>> ae0df221af6c0ea2395c00e77d2ced8cfbf9de86
     private int PositionX;
     private int PositionY;
     private int SpeedX;
     private int SpeedY;
+<<<<<<< HEAD
     
+=======
+>>>>>>> ae0df221af6c0ea2395c00e77d2ced8cfbf9de86
     public Ball(){
-    	   PositionX=250;
-     	   PositionY=680;
+     PositionX=250;
+     PositionY=680;
     }
     
     public void ChangeXY(){
@@ -28,7 +34,11 @@ class Ball{
     }
          
     public void display(){
+<<<<<<< HEAD
       ellipse(PositionX, PositionY, 20, 20);    
-}
+=======
+      ellipse(PositionX, PositionY, 30, 30);    
+>>>>>>> ae0df221af6c0ea2395c00e77d2ced8cfbf9de86
+    }
     
 }
