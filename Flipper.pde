@@ -1,4 +1,4 @@
-public class Flipper{
+/*public class Flipper{
   
   float x;
   float y;
@@ -17,6 +17,5 @@ public class Flipper{
   public void flip(){
     
   }
-      
-  
-}
+
+}*/
