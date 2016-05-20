@@ -1,34 +1,27 @@
 class Ball{
 
-    private int PositionX;
-    private int PositionY;
-    private int SpeedX;
-    private int SpeedY;
-    
+    private int x;
+    private int y;
+    private int ax;
+    private int ay;
     public Ball(){
-    	   PositionX=250;
-     	   PositionY=680;
+    	    x=250;
+     	   y=680;
+     ax=5;
+       ay=-5;
     }
-    
-    public void ChangeXY(){
-        PositionX+=SpeedX;
-        PositionY+=SpeedY;
+
+    void BounceWall(){
+      if(x+ax>480||x+ax<20){
+        ax=-ax;}
+      if(y+ay>680||y+ay<20){
+        ay=-ay;}
+        y+=ay;
+        x+=ax;
     }
-    public void BounceWall(){
-        if(PositionX<25){
-           SpeedX=5;
-           SpeedY=5;
-        }else if(PositionY<25){
-           SpeedY=5;}
-         else if(PositionX>475){
-           SpeedX=-5;
-           SpeedY=5;}
-         else if(PositionY>675){
-           SpeedY=-5;}
-    }
-         
+        
     public void display(){
-      ellipse(PositionX, PositionY, 20, 20);    
+      ellipse(x, y, 20, 20);    
 }
     
 }

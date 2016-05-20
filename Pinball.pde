@@ -15,7 +15,7 @@ void gameSetup(){
 }
 
 //Ball b;
-
+  Ball b = new Ball();
 void draw(){
     /*
     if(screen == 0){
@@ -24,10 +24,9 @@ void draw(){
     if(screen == 1){
         gameScreen();
     }*/
-    Ball b = new Ball();  
+    background(225,225,225);
     b.display();
     b.BounceWall();
-    b.ChangeXY();
 }
 
 
