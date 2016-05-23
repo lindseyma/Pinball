@@ -16,6 +16,8 @@ void gameSetup(){
 
 //Ball b;
   Ball b = new Ball();
+  Bouncer bc = new Bouncer(200,150);
+  Bouncer bc2 = new Bouncer(260,200);
 void draw(){
     /*
     if(screen == 0){
@@ -24,9 +26,16 @@ void draw(){
     if(screen == 1){
         gameScreen();
     }*/
-    background(225,225,225);
+    background(209,209,209);
+    rect(100,100,300,500);
+
     b.display();
+    bc.display();
+    bc2.display();
+    bc.Collision(b);
+    bc2.Collision(b);
     b.BounceWall();
+    b.bounce();
 }
 
 

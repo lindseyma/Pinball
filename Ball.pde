@@ -19,13 +19,19 @@ class Ball{
         return y;}
 
     void BounceWall(){
-      if(x+ax>480||x+ax<20){
+      if(x+ax>380||x+ax<120){
         ax=-ax;}
-      if(y+ay>680||y+ay<20){
+      if(y+ay>680||y+ay<120){
         ay=-ay;}
+    }
+      void bounce(){
         y+=ay;
         x+=ax;
-    }
+      }
+      void changeSpeed(){
+         ax=-ax;
+         ay=-ay;
+      }
         
     public void display(){
       ellipse(x, y, 20, 20);    
