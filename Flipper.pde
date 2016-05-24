@@ -6,6 +6,7 @@ public class Flipper{
   boolean flipped;
   boolean up;
   
+  
   public Flipper(float x, float y, float size){
     this.size = size;
     fixX = x;

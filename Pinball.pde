@@ -18,9 +18,11 @@ void gameSetup(){
   Bouncer bc = new Bouncer(200,150);
   Bouncer bc2 = new Bouncer(260,200);
   
-  Flipper rightF = new Flipper(265, 580, 50);
+  Flipper rightF = new Flipper(185, 580, 50);
   
 void draw(){
+    //text(score, 20, 10);
+    //fill(50);
     /*
     if(screen == 0){
         menu();
@@ -29,6 +31,7 @@ void draw(){
         gameScreen();
     }*/
     background(209,209,209);
+    noFill();
     rect(100,100,300,500);
 
     b.display();
@@ -39,8 +42,8 @@ void draw(){
     b.BounceWall();
     b.bounce();
     
-    rightF.display(265, 580, 50);
-    
+    rightF.display(185, 580, 50);
+    display();
 }
 
 
@@ -68,6 +71,11 @@ void draw(){
   float startLaunch;
   float endLaunch;
   float launchPower;
+  
+  void display(){
+    text(score, 20, 30);
+    fill(0);
+  }
   
   public float countTime(){
       startLaunch = millis();
