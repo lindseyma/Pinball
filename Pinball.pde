@@ -1,7 +1,6 @@
 void setup(){
-    size(500, 700);  
-    Ball b = new Ball();
-    b.display();
+    size(500, 700); 
+   // rightF.display(265, 580, 50);
 }
 
 int mode;
@@ -18,6 +17,9 @@ void gameSetup(){
   Ball b = new Ball();
   Bouncer bc = new Bouncer(200,150);
   Bouncer bc2 = new Bouncer(260,200);
+  
+  Flipper rightF = new Flipper(265, 580, 50);
+  
 void draw(){
     /*
     if(screen == 0){
@@ -36,6 +38,9 @@ void draw(){
     bc2.Collision(b);
     b.BounceWall();
     b.bounce();
+    
+    rightF.display(265, 580, 50);
+    
 }
 
 
@@ -45,11 +50,18 @@ void draw(){
       if(key == ' '){
          countTime();
       }
+      if(key == 'j'){
+         rightF.flip();
+
+  }
   }
   
   void keyReleased(){
       if(key == ' '){
           stopLTime();
+      }
+      if(key == 'j'){
+          rightF.unflip();
       }
   }
   
@@ -71,11 +83,3 @@ void draw(){
   public void launch(){
     System.out.println("launching ayy");
   }
-/*
-void menu(){
-    
-}
-
-void gameScreen(){
- 
-}*/

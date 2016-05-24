@@ -1,6 +1,7 @@
 class Bouncer{
   private int x;
   private int y;
+  
   public Bouncer(int a,int b){
     x=a;
     y=b;
