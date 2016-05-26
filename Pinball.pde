@@ -54,10 +54,10 @@ void draw(){
       if(key == ' '){
          countTime();
       }
-      if(key == 'j'){
+      if(key == 'f'){
          rightF.flip();
       }
-      if(key == 'f'){
+      if(key == 'j'){
         leftF.flip();
       }
   }
@@ -66,10 +66,10 @@ void draw(){
       if(key == ' '){
           stopLTime();
       }
-      if(key == 'j'){
+      if(key == 'f'){
           rightF.unflip();
       }
-      if(key == 'f'){
+      if(key == 'j'){
           leftF.unflip();
       }
   }
