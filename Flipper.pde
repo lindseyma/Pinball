@@ -5,18 +5,25 @@ public class Flipper{
   float size;
   boolean flipped;
   boolean up;
+  boolean left;
   
   
-  public Flipper(float x, float y, float size){
+  public Flipper(float x, float y, float size, boolean left){
     this.size = size;
     fixX = x;
     fixY = y;
+    this.left = left;
   }
   
   public void display(float x, float y, float size){
     //rect(fixX, fixY, size, 5);
     if(!up){
-    rect(x, y, size, 5);
+      if(left == true){
+         rect(x, y, size, 5);
+      }
+      else{
+        rect(x, y, size, 5);
+      }
     }
     println(up);
   }
@@ -27,10 +34,17 @@ public class Flipper{
       flipped = true;
       up = true;
       pushMatrix();
-      translate(fixX,fixY);
-      rotate(radians(330));
+      if(left == true){
+        translate(fixX,fixY);
+        rotate(radians(330));
+        rect(0,0,size,5);
+      }
+      else{
+        translate(fixX + size+25, fixY+5);
+        rotate(radians(200));
+        rect(0,0,size,5);
+      }
       //rect(fixX,fixY,size,25);
-      rect(0,0,size,5);
       popMatrix();
       println("flipp");
     }

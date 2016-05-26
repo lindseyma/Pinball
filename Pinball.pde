@@ -3,7 +3,6 @@ void setup(){
    // rightF.display(265, 580, 50);
 }
 
-int mode;
 int score = 0;
 int lives = 3;
 //int screen = 0;
@@ -15,10 +14,11 @@ void gameSetup(){
 
 //Ball b;
   Ball b = new Ball();
-  Bouncer bc = new Bouncer(200,150);
-  Bouncer bc2 = new Bouncer(260,200);
+  //Bouncer bc = new Bouncer(200,150);
+  //Bouncer bc2 = new Bouncer(260,200);
   
-  Flipper rightF = new Flipper(185, 580, 50);
+  Flipper rightF = new Flipper(185, 580, 50, true);
+  Flipper leftF = new Flipper(250, 580, 50, false);
   
 void draw(){
     //text(score, 20, 10);
@@ -35,14 +35,15 @@ void draw(){
     rect(100,100,300,500);
 
     b.display();
-    bc.display();
-    bc2.display();
-    bc.Collision(b);
-    bc2.Collision(b);
+   // bc.display();
+   // bc2.display();
+    //bc.Collision(b);
+    //bc2.Collision(b);
     b.BounceWall();
     b.bounce();
     
     rightF.display(185, 580, 50);
+    leftF.display(275, 580, 50);
     display();
 }
 
@@ -55,8 +56,10 @@ void draw(){
       }
       if(key == 'j'){
          rightF.flip();
-
-  }
+      }
+      if(key == 'f'){
+        leftF.flip();
+      }
   }
   
   void keyReleased(){
@@ -65,6 +68,9 @@ void draw(){
       }
       if(key == 'j'){
           rightF.unflip();
+      }
+      if(key == 'f'){
+          leftF.unflip();
       }
   }
   
