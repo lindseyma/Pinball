@@ -10,7 +10,7 @@ class Ball{
       y=680;
       ax=5;
       ay=-5;
-      weight=10;
+      weight=0.25;
     }
     
     int getX(){
@@ -31,6 +31,7 @@ class Ball{
       void changeSpeed(){
          ax=-ax;
          ay=-ay;
+         ay+=weight;
       }
         
     public void display(){
