@@ -9,8 +9,8 @@ class Bouncer{
 
   void Collision(Ball b){
     
-      int absX=Math.abs(b.getX() - x);
-      int absY=Math.abs(b.getY() - y);
+      float absX=Math.abs(b.getX() - x);
+      float absY=Math.abs(b.getY() - y);
       double dist = absX*absX+absY*absY;
       if(dist<=(50*50)){
           b.changeSpeed();

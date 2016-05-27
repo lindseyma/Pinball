@@ -1,21 +1,21 @@
 class Ball{
 
-    private int x;
-    private int y;
-    private int ax;
-    private int ay;
-    private int weight;
+    private float x;
+    private float y;
+    private float ax;
+    private float ay;
+    private float  weight;
     public Ball(){
       x=250;
-      y=680;
-      ax=5;
-      ay=-5;
+      y=150;
+      ax=2;
+      ay=-2;
       weight=0.25;
     }
     
-    int getX(){
+    float getX(){
         return x;}
-    int getY(){
+    float getY(){
         return y;}
 
     void BounceWall(){
@@ -27,13 +27,13 @@ class Ball{
       void bounce(){
         y+=ay;
         x+=ax;
+        ay+=weight; //<>//
       }
+       
       void changeSpeed(){
-         ax=-ax;
-         ay=-ay;
-         ay+=weight;
+        ax=-ax;
+        ay=-ay;
       }
-        
     public void display(){
       ellipse(x, y, 20, 20);    
 }

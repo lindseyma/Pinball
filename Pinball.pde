@@ -51,7 +51,7 @@ void draw(){
 //key pressed -- count time -- stop when key release -- restart counterwhen ball is back
 //time count corresponds to force used to launch ball
   void keyPressed(){
-      if(key == ' '){
+     if(key == ' '){
          countTime();
       }
       if(key == 'f'){
@@ -60,6 +60,7 @@ void draw(){
       if(key == 'j'){
         leftF.flip();
       }
+     
   }
   
   void keyReleased(){
