@@ -5,12 +5,9 @@ void setup(){
 
 int score = 0;
 int lives = 3;
+boolean launched = false;
 //int screen = 0;
 
-void gameSetup(){
-    score = 0;
-   // b = new Ball();
-}
 
 //Ball b;
   Ball b = new Ball();
@@ -35,6 +32,7 @@ void draw(){
     rect(100,100,300,500);
 
     b.display();
+    launch();
    // bc.display();
    // bc2.display();
     //bc.Collision(b);
@@ -96,5 +94,10 @@ void draw(){
   }
   
   public void launch(){
-    System.out.println("launching ayy");
+    if(launched=false){
+      b.launchUp(launchPower);
+      launched = true;
+    }
+  
   }
+  
