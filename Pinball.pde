@@ -1,11 +1,13 @@
 void setup(){
     size(500, 700); 
+    
    // rightF.display(265, 580, 50);
 }
 
 int score = 0;
 int lives = 3;
 boolean launched = false;
+
 //int screen = 0;
 
 
