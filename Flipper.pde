@@ -25,7 +25,7 @@ public class Flipper{
         rect(x, y, size, 5);
       }
     }
-    println(up);
+  //  println(up);
   }
   
   //popmatrix
@@ -46,7 +46,7 @@ public class Flipper{
       }
       //rect(fixX,fixY,size,25);
       popMatrix();
-      println("flipp");
+    //  println("flipp");
     }
   }
 
