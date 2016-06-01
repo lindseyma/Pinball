@@ -7,6 +7,7 @@ void setup(){
 int score = 0;
 int lives = 3;
 boolean launched = false;
+int launchNum=0;
 boolean gameBegin = false;
 //int screen = 0;
 
@@ -41,8 +42,9 @@ void draw(){
     b.BounceWall();
     if(gameBegin){
       b.bounce();}
-    if(launched){
+    if(launched && launchNum==0){
       b.launchUp(time);
+      endTime();
     }
     rightF.display(185, 580, 50);
     leftF.display(275, 580, 50);
@@ -56,6 +58,7 @@ void draw(){
   void keyPressed(){
      if(key == ' '){
          time++;
+         println("time:" +time);
       }
       if(key == 'f'){
          rightF.flip();
@@ -69,7 +72,6 @@ void draw(){
       if(key == ' '){
           launched=true;
           startTime();
-          println(time);
       }
       if(key == 'f'){
           rightF.unflip();
@@ -81,12 +83,14 @@ void draw(){
  ///after keyReleased
  float launchTime;
    void startTime(){
-      launchTime=second();
+      launchTime=millis();
    }
    void endTime(){
-     if(second()-launchTime >3){
+     if(millis()-launchTime >500){
        gameBegin=true;
        launched=false;
+       launchNum++;
+       println("endTime:" + launchTime);
      }
    }
   

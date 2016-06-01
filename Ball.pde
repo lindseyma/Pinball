@@ -8,9 +8,9 @@ class Ball{
     public Ball(){
       x=390;
       y=590;
-      ax=2;
-      ay=-2;
-      weight=0.25;
+      ax=1;
+      ay=-1;
+      weight=0.20;
     }
     
     float getX(){
@@ -36,10 +36,10 @@ class Ball{
       }
       
       void launchUp(float power){
-        power=power/30;
+        power=power/50;
         ay-=power;
         y+=ay;
-        x+=ax;
+        x-=0.15;
         ay+=weight;
       }
 
