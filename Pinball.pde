@@ -43,7 +43,7 @@ void draw(){
    // bc2.display();
     //bc.Collision(b);
     //bc2.Collision(b);
-    
+
     if(gameBegin){
       b.bounce();}
     if(launched && launchNum==0){
