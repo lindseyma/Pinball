@@ -4,6 +4,13 @@ public class Wall{
   float bx;
   float by;
   
+  public Wall(float a, float b, float c, float d){
+    ax = a;
+    ay = b;
+    bx = c;
+    by = d;
+  }
+  
   void display(){
     line(ax, ay, bx, by);
   }

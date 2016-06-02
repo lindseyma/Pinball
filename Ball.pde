@@ -8,9 +8,9 @@ class Ball{
     public Ball(){
       x=390;
       y=590;
-      ax=2;
-      ay=-2;
-      weight=0.25;
+      ax=1;
+      ay=-1;
+      weight=0.20;
     }
     
     float getX(){
@@ -19,20 +19,15 @@ class Ball{
         return y;}
 
     void BounceWall(){
-      if(x+ax>380||x+ax<120){
+      if(x+ax>390||x+ax<120){
         ax=-ax;}
-      if(y+ay>580||y+ay<120){
+      if(y+ay>590||y+ay<120){
         ay=-ay;}
     }
       void bounce(){
         y+=ay;
         x+=ax; //<>//
-      }
-      
-      void accelerateUp(){
-        if(y<590){
-          weight = 0.25;
-        }
+        ay+=weight;
       }
        
       void changeSpeed(){
@@ -40,8 +35,12 @@ class Ball{
         ay=-ay;
       }
       
-      void launchUp(float milisec){
-        ay+=(milisec/1000)*0.45;
+      void launchUp(float power){
+        power=power/50;
+        ay-=power;
+        y+=ay;
+        x-=0.15;
+        ay+=weight;
       }
 
       void display(){
