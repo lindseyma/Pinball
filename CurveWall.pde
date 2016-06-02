@@ -16,7 +16,7 @@ public class CurveWall{
    this.cy = cy;
  }
  
-
+ public void collision(){
    
   
 }

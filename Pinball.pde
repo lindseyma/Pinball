@@ -7,7 +7,7 @@ void setup(){
 int score = 0;
 int lives = 3;
 boolean launched = false;
-boolean gameBegin = false;
+
 //int screen = 0;
 
 
@@ -34,16 +34,14 @@ void draw(){
     rect(100,100,300,500);
 
     b.display();
-    // bc.display();
+    launch();
+   // bc.display();
    // bc2.display();
     //bc.Collision(b);
     //bc2.Collision(b);
     b.BounceWall();
-    if(gameBegin){
-      b.bounce();}
-    if(launched){
-      b.launchUp(time);
-    }
+    b.bounce();
+    
     rightF.display(185, 580, 50);
     leftF.display(275, 580, 50);
     display();
@@ -52,10 +50,9 @@ void draw(){
 
 //key pressed -- count time -- stop when key release -- restart counterwhen ball is back
 //time count corresponds to force used to launch ball
-  float time=0;
   void keyPressed(){
      if(key == ' '){
-         time++;
+         countTime();
       }
       if(key == 'f'){
          rightF.flip();
@@ -63,13 +60,12 @@ void draw(){
       if(key == 'j'){
         leftF.flip();
       }
-   }
+     
+  }
   
   void keyReleased(){
       if(key == ' '){
-          launched=true;
-          startTime();
-          println(time);
+          stopLTime();
       }
       if(key == 'f'){
           rightF.unflip();
@@ -78,22 +74,32 @@ void draw(){
           leftF.unflip();
       }
   }
- ///after keyReleased
- float launchTime;
-   void startTime(){
-      launchTime=second();
-   }
-   void endTime(){
-     if(second()-launchTime >3){
-       gameBegin=true;
-       launched=false;
-     }
-   }
+  
+  float startLaunch;
+  float endLaunch;
+  float launchPower;
   
   void display(){
     text(score, 20, 30);
     fill(0);
   }
   
+  public float countTime(){
+      startLaunch = millis();
+      return startLaunch;
+  }
   
+  public float stopLTime(){
+      endLaunch = millis();
+      launchPower = endLaunch-startLaunch;
+      return launchPower;
+  }
+  
+  public void launch(){
+    if(launched=false){
+      b.launchUp(launchPower);
+      launched = true;
+    }
+  
+  }
   
