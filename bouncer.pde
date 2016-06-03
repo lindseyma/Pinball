@@ -1,12 +1,16 @@
 class Bouncer{
-  private int x;
-  private int y;
+  private float x;
+  private float y;
+  float rad;
   
-  public Bouncer(int a,int b){
+  //round bouncers
+  
+  public Bouncer(float a,float b, float rad){
     x=a;
     y=b;
+    this.rad = rad;
 }
-
+/*
   void Collision(Ball b){
     
       float absX=Math.abs(b.getX() - x);
@@ -17,7 +21,20 @@ class Bouncer{
           score+=1;
       } 
   }
+*/
 
+  boolean Collision(Ball b){
+    float d = abs(rad-10);
+    if(d > rad + 10){
+      return false;
+    }
+    else{
+        return true;
+      }
+    }
+  
+      
+    
   public void display(){
     ellipse(x,y,50,50);
   }

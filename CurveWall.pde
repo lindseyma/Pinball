@@ -24,4 +24,7 @@ public class CurveWall{
     curve(ax, ay, bx, by, cx, cy, dx, dy);
   }
   
+  public void cWalling(Ball b){
+    
+  
 }
