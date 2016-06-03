@@ -23,7 +23,7 @@ boolean gameBegin = false;
   
   //120, 120, 205, 150, 285, 150, 390, 120
   
-  //Bouncer bc = new Bouncer(200,150);
+  Bouncer bc = new Bouncer(200,150, 25);
   //Bouncer bc2 = new Bouncer(260,200);
   
   Flipper rightF = new Flipper(185, 580, 50, true);
@@ -55,9 +55,9 @@ void draw(){
     d.walling(b);
     r.walling(b);
     l.walling(b);
-    // bc.display();
+     bc.display();
    // bc2.display();
-    //bc.Collision(b);
+    bc.CollisionH(b);
     //bc2.Collision(b);
     //b.BounceWall();
     if(gameBegin){
@@ -105,6 +105,7 @@ void draw(){
    void startTime(){
       launchTime=millis();
    }
+   
    void endTime(){
      if(millis()-launchTime >500){
        gameBegin=true;
@@ -118,6 +119,7 @@ void draw(){
     text(score, 20, 30);
     fill(0);
   }
+  
   
   
   

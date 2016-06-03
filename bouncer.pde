@@ -9,7 +9,7 @@ class Bouncer{
     x=a;
     y=b;
     this.rad = rad;
-}
+  }
 /*
   void Collision(Ball b){
     
@@ -24,18 +24,24 @@ class Bouncer{
 */
 
   boolean Collision(Ball b){
-    float d = abs(rad-10);
+    float d = sqrt(sq((x-b.x))+(sq(y-b.y)));
+    System.out.println(d);
     if(d > rad + 10){
       return false;
     }
     else{
-        return true;
-      }
+      return true;
     }
+  }
   
-      
+  void CollisionH(Ball b){
+    if(Collision(b) == true){
+      b.changeSpeed();
+      score+=1;
+    }
+  }
     
   public void display(){
-    ellipse(x,y,50,50);
+    ellipse(x,y,rad*2, rad*2);
   }
 }
