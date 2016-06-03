@@ -6,7 +6,7 @@ public class Flipper{
   boolean flipped;
   boolean up;
   boolean left;
-  
+  int lflip=-25, rflip=25;
   
   public Flipper(float x, float y, float size, boolean left){
     this.size = size;
@@ -36,12 +36,26 @@ public class Flipper{
       pushMatrix();
       if(left == true){
         translate(fixX,fixY);
-        rotate(radians(330));
+        rotate(-radians(lflip));
+        if(up && lflip<50){
+          lflip+=5;
+        }
+        else if(lflip ==50){
+          up=false;}
+        if(!up&&lflip>-25){
+          lflip-=5;}
         rect(0,0,size,5);
       }
       else{
         translate(fixX + size+25, fixY+5);
-        rotate(radians(200));
+        rotate(-radians(rflip));
+        if(up && rflip>-50){
+          rflip-=5;
+        }
+        else if(rflip == -50){
+          up=false;}
+        if(!up &&rflip<25){
+          rflip+=5;}
         rect(0,0,size,5);
       }
       //rect(fixX,fixY,size,25);

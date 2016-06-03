@@ -10,18 +10,7 @@ class Bouncer{
     y=b;
     this.rad = rad;
   }
-/*
-  void Collision(Ball b){
-    
-      float absX=Math.abs(b.getX() - x);
-      float absY=Math.abs(b.getY() - y);
-      double dist = absX*absX+absY*absY;
-      if(dist<=(50*50)){
-          b.changeSpeed();
-          score+=1;
-      } 
-  }
-*/
+
 
   boolean Collision(Ball b){
     float d = sqrt(sq((x-b.x))+(sq(y-b.y)));

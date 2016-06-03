@@ -1,7 +1,5 @@
 void setup(){
     size(500, 700); 
-    
-   // rightF.display(265, 580, 50);
 }
 
 int score = 0;
@@ -13,25 +11,23 @@ boolean gameBegin = false;
 
 
 //Ball b;
-  Ball b = new Ball();
-  //Wall t = new Wall(120, 120, 390, 120);
-  Wall l = new Wall(120, 120, 120, 590);
-  Wall r = new Wall(120, 590, 390, 590);
-  Wall d = new Wall(390, 120, 390, 590);
+Ball b = new Ball();
+//Wall t = new Wall(120, 120, 390, 120);
+Wall l = new Wall(120, 120, 120, 590);
+Wall r = new Wall(120, 590, 390, 590);
+Wall d = new Wall(390, 120, 390, 590);
+CurveWall t = new CurveWall(120, 500, 120, 120, 390, 120, 500, 500);
+//120, 120, 205, 150, 285, 150, 390, 120
   
-  CurveWall t = new CurveWall(120, 500, 120, 120, 390, 120, 500, 500);
+Bouncer bc = new Bouncer(200,150, 25);
+//Bouncer bc2 = new Bouncer(260,200);
   
-  //120, 120, 205, 150, 285, 150, 390, 120
-  
-  Bouncer bc = new Bouncer(200,150, 25);
-  //Bouncer bc2 = new Bouncer(260,200);
-  
-  Flipper rightF = new Flipper(185, 580, 50, true);
-  Flipper leftF = new Flipper(250, 580, 50, false);
+Flipper rightF = new Flipper(185, 580, 50, true);
+Flipper leftF = new Flipper(250, 580, 50, false);
   
 void draw(){
-    //text(score, 20, 10);
-    //fill(50);
+//text(score, 20, 10);
+//fill(50);
     /*
     if(screen == 0){
         menu();
@@ -55,11 +51,9 @@ void draw(){
     d.walling(b);
     r.walling(b);
     l.walling(b);
-     bc.display();
-   // bc2.display();
+    bc.display();
     bc.CollisionH(b);
-    //bc2.Collision(b);
-    //b.BounceWall();
+
     if(gameBegin){
       b.bounce();}
     if(launched && launchNum==0){
@@ -82,6 +76,7 @@ void draw(){
       }
       if(key == 'f'){
          rightF.flip();
+      
       }
       if(key == 'j'){
         leftF.flip();
