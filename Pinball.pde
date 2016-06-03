@@ -1,4 +1,4 @@
-setup(){
+void setup(){
     size(500, 700); 
     
    // rightF.display(265, 580, 50);
@@ -18,6 +18,7 @@ boolean gameBegin = false;
   Wall l = new Wall(120, 120, 120, 590);
   Wall r = new Wall(120, 590, 390, 590);
   Wall d = new Wall(390, 120, 390, 590);
+  
   //Bouncer bc = new Bouncer(200,150);
   //Bouncer bc2 = new Bouncer(260,200);
   
@@ -36,14 +37,25 @@ void draw(){
     }*/
     background(209,209,209);
     noFill();
-    rect(100,100,300,500);
+    //rect(100,100,300,500);
 
     b.display();
+    
+    //wall stuff
+    t.display();
+    d.display();
+    r.display();
+    l.display();
+    
+    t.walling(b);
+    d.walling(b);
+    r.walling(b);
+    l.walling(b);
     // bc.display();
    // bc2.display();
     //bc.Collision(b);
     //bc2.Collision(b);
-
+    //b.BounceWall();
     if(gameBegin){
       b.bounce();}
     if(launched && launchNum==0){
