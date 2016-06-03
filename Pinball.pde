@@ -14,10 +14,14 @@ boolean gameBegin = false;
 
 //Ball b;
   Ball b = new Ball();
-  Wall t = new Wall(120, 120, 390, 120);
+  //Wall t = new Wall(120, 120, 390, 120);
   Wall l = new Wall(120, 120, 120, 590);
   Wall r = new Wall(120, 590, 390, 590);
   Wall d = new Wall(390, 120, 390, 590);
+  
+  CurveWall t = new CurveWall(120, 500, 120, 120, 390, 120, 500, 500);
+  
+  //120, 120, 205, 150, 285, 150, 390, 120
   
   //Bouncer bc = new Bouncer(200,150);
   //Bouncer bc2 = new Bouncer(260,200);
@@ -47,7 +51,7 @@ void draw(){
     r.display();
     l.display();
     
-    t.walling(b);
+    //t.walling(b);
     d.walling(b);
     r.walling(b);
     l.walling(b);
