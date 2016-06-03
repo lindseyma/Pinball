@@ -2,11 +2,25 @@ public class Flipper{
   
   float fixX;
   float fixY;
-  float size;
+  float moveX;
+  float moveY;
   boolean flipped;
   boolean up;
-  boolean left;
   
+  public Flipper(float a, float b,float c,float d){
+    fixX=a;
+    fixY=b;
+    moveX=c;
+    moveY=d;
+  }
+  
+  void display(){
+    line(fixX,fixY,moveX,moveY);
+  }
+  
+  
+
+ /* 
   public Flipper(float x, float y, float size, boolean left){
     this.size = size;
     fixX = x;
@@ -55,5 +69,5 @@ public class Flipper{
       up = false;
     }
   }
-  //}
+  //}*/
 }
