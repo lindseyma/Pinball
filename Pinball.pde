@@ -1,4 +1,4 @@
-void setup(){
+    void setup(){
     size(500, 700); 
 }
 
@@ -19,7 +19,8 @@ Wall d = new Wall(390, 120, 390, 590);
 CurveWall t = new CurveWall(120, 500, 120, 120, 390, 120, 500, 500);
 //120, 120, 205, 150, 285, 150, 390, 120
   
-Bouncer bc = new Bouncer(200,150, 25);
+Bouncer bc = new Bouncer(200,260, 25);
+Bouncer bc2= new Bouncer(270,300,25);
 //Bouncer bc2 = new Bouncer(260,200);
   
 Flipper rightF = new Flipper(175, 550, 215, 580,false);
@@ -53,7 +54,8 @@ void draw(){
     l.walling(b);
     bc.display();
     bc.CollisionH(b);
-
+    bc2.display();
+    bc2.CollisionH(b);
     if(gameBegin){
       b.bounce();}
     if(launched && launchNum==0){
@@ -64,6 +66,8 @@ void draw(){
     leftF.display();
     rightF.flip();
     leftF.flip();
+    leftF.collisionF(b);
+    rightF.collisionF(b);
     if(rightF.getFlipped()){
       rightF.decreaseT();}
      if(leftF.getFlipped()){

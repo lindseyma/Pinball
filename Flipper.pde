@@ -30,6 +30,7 @@ public class Flipper{
     line(fixX,fixY,moveX,moveY);
   }
   
+
   
   void increaseT(){
     if(t<0.50){
@@ -52,54 +53,28 @@ public class Flipper{
       moveY = 70*sin(-t)+fixY;}
   }
 
- /* 
-  public Flipper(float x, float y, float size, boolean left){
-    this.size = size;
-    fixX = x;
-    fixY = y;
-    this.left = left;
-  }
-  
-  public void display(float x, float y, float size){
-    //rect(fixX, fixY, size, 5);
-    if(!up){
-      if(left == true){
-         rect(x, y, size, 5);
-      }
-      else{
-        rect(x, y, size, 5);
-      }
-    }
-  //  println(up);
-  }
-  
-  //popmatrix
-  public void flip(){
-    if(!flipped){
-      flipped = true;
-      up = true;
-      pushMatrix();
-      if(left == true){
-        translate(fixX,fixY);
-        rotate(radians(330));
-        rect(0,0,size,5);
-      }
-      else{
-        translate(fixX + size+25, fixY+5);
-        rotate(radians(200));
-        rect(0,0,size,5);
-      }
-      //rect(fixX,fixY,size,25);
-      popMatrix();
-    //  println("flipp");
+ boolean collisionFH(Ball b){
+   float P1X=fixX-b.getX();
+   float P1Y=fixY-b.getY();
+   float P2X=moveX-b.getX();
+   float P2Y=moveY-b.getY();
+   float MinusX=P2X-P1X;
+   float MinusY=P2Y-P1Y;
+   float a = MinusX*MinusX+MinusY*MinusY;
+   float d = 2*(MinusX*P1X+MinusY*P1Y);
+   float c = P1X*P1X+P1Y*P1Y-100;
+   float delta = d*d - (4*a*c);
+   if(delta ==0){
+     return true;}
+     return false;
+ }
+   
+ 
+  void collisionF(Ball b){
+    if(collisionFH(b)){
+      b.changeSpeed();
     }
   }
-
-  public void unflip(){
-    if(flipped){
-      flipped = false;
-      up = false;
-    }
-  }
-  //}*/
+    
+ 
 }
