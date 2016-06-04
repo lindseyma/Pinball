@@ -77,7 +77,8 @@ void draw(){
   float time=0;
   void keyPressed(){
      if(key == ' '){
-         time++;
+         if(time<25){
+         time++;}
          println("time:" +time);
       }
       if(key == 'f'){
