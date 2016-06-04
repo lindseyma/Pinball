@@ -22,8 +22,8 @@ CurveWall t = new CurveWall(120, 500, 120, 120, 390, 120, 500, 500);
 Bouncer bc = new Bouncer(200,150, 25);
 //Bouncer bc2 = new Bouncer(260,200);
   
-Flipper rightF = new Flipper(185, 580, 50, true);
-Flipper leftF = new Flipper(250, 580, 50, false);
+Flipper rightF = new Flipper(175, 550, 215, 580,false);
+Flipper leftF = new Flipper(330, 550, 220, 580,true);
   
 void draw(){
 //text(score, 20, 10);
@@ -60,8 +60,14 @@ void draw(){
       b.launchUp(time);
       endTime();
     }
-    rightF.display(185, 580, 50);
-    leftF.display(275, 580, 50);
+    rightF.display();
+    leftF.display();
+    rightF.flip();
+    leftF.flip();
+    if(rightF.getFlipped()){
+      rightF.decreaseT();}
+     if(leftF.getFlipped()){
+       leftF.decreaseT();}
     display();
 }
 
@@ -75,11 +81,12 @@ void draw(){
          println("time:" +time);
       }
       if(key == 'f'){
-         rightF.flip();
+        rightF.increaseT();
       
       }
       if(key == 'j'){
-        leftF.flip();
+        leftF.increaseT();
+      
       }
    }
   
@@ -89,12 +96,20 @@ void draw(){
           startTime();
       }
       if(key == 'f'){
-          rightF.unflip();
+        rightF.setFlipped(true);
       }
       if(key == 'j'){
-          leftF.unflip();
+        leftF.setFlipped(true);
       }
   }
+  
+ /// unflip
+   void unflip(Flipper f){
+     for(int i=0;i<10;i++){
+       f.decreaseT();
+     }
+   }
+ 
  ///after keyReleased
  float launchTime;
    void startTime(){

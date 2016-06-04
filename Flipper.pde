@@ -4,14 +4,26 @@ public class Flipper{
   float fixY;
   float moveX;
   float moveY;
+  float t;
+  boolean left;
   boolean flipped;
-  boolean up;
   
-  public Flipper(float a, float b,float c,float d){
+  public Flipper(float a, float b,float c,float d,boolean l){
     fixX=a;
     fixY=b;
     moveX=c;
     moveY=d;
+    t=-0.35;
+    left = l;
+    flipped = false;
+  }
+  
+  boolean getFlipped(){
+    return flipped;
+  }
+  
+  void setFlipped(boolean j){
+    flipped = j;
   }
   
   void display(){
@@ -19,6 +31,26 @@ public class Flipper{
   }
   
   
+  void increaseT(){
+    if(t<0.50){
+      t+=0.10;}
+  }
+  
+  void decreaseT(){
+     if(t>-0.25){
+       t-=0.10;
+     }
+     else{
+      flipped = false;}
+  }
+  void flip(){
+   if(left){
+      moveX = -70*cos(-t)+fixX;
+      moveY = 70*sin(-t)+fixY;}
+    else{
+      moveX = 70*cos(-t)+fixX;
+      moveY = 70*sin(-t)+fixY;}
+  }
 
  /* 
   public Flipper(float x, float y, float size, boolean left){
