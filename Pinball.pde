@@ -16,6 +16,8 @@ Ball b = new Ball();
 Wall l = new Wall(120, 120, 120, 590);
 Wall r = new Wall(120, 590, 390, 590);
 Wall d = new Wall(390, 120, 390, 590);
+//testttt
+Wall diagTest = new Wall(200, 200, 300, 300);
 CurveWall t = new CurveWall(120, 500, 120, 120, 390, 120, 500, 500);
 //120, 120, 205, 150, 285, 150, 390, 120
   
@@ -47,6 +49,9 @@ void draw(){
     d.display();
     r.display();
     l.display();
+    
+    diagTest.display();
+    diagTest.walling(b);
     
     //t.walling(b);
     d.walling(b);
