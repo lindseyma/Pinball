@@ -14,8 +14,10 @@ boolean gameBegin = false;
 Ball b = new Ball();
 //Wall t = new Wall(120, 120, 390, 120);
 Wall l = new Wall(120, 120, 120, 590);
-Wall r = new Wall(120, 590, 390, 590);
-Wall d = new Wall(390, 120, 390, 590);
+DiagonalWall bottomLeft = new DiagonalWall(120, 590, 235, 640, true);
+//DiagonalWall bottomRight = new DiagonalWall(270, 640, 390, 590, false);
+DiagonalWall bottomRight = new DiagonalWall(390, 590, 270, 640, false);
+Wall r = new Wall(390, 120, 390, 590);
 //testttt
 //Wall diagTest = new Wall(200, 200, 300, 300);
 CurveWall t = new CurveWall(120, 500, 120, 120, 390, 120, 500, 500);
@@ -46,15 +48,17 @@ void draw(){
     
     //wall stuff
     t.display();
-    d.display();
+    //d.display();
     r.display();
     l.display();
-    
+    bottomLeft.display();
+    bottomRight.display();
    // diagTest.display();
    // diagTest.walling(b);
     
     //t.walling(b);
-    d.walling(b);
+    bottomLeft.collisionDia();
+    bottomRight.collisionDia();
     r.walling(b);
     l.walling(b);
     //bc.display();
