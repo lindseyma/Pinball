@@ -1,5 +1,7 @@
     void setup(){
     size(500, 700); 
+    score = 0;
+    menu();
 }
 
 int score = 0;
@@ -7,7 +9,7 @@ int lives = 3;
 boolean launched = false;
 int launchNum=0;
 boolean gameBegin = false;
-//int screen = 0;
+int screen = 0;
 
 
 //Ball b;
@@ -31,19 +33,34 @@ Flipper rightF = new Flipper(175, 550, 215, 575,false);
 Flipper leftF = new Flipper(330, 550, 265, 575,true);
   
 void draw(){
+  System.out.println(screen);
 //text(score, 20, 10);
 //fill(50);
-    /*
     if(screen == 0){
         menu();
     }
     if(screen == 1){
         gameScreen();
+    }
+    /*if(screen == 2){
+        endScreen();
     }*/
-    background(209,209,209);
+    //background(209,209,209);
     noFill();
     //rect(100,100,300,500);
+}
 
+void menu(){
+  textSize(100);
+  fill(0, 102, 153);
+  text("PINBALL", 60, 300);
+  fill(10, 102, 0);
+  textSize(50);
+  text("Play", 185, 400);
+}
+
+
+void gameScreen(){
     b.display();
     
     //wall stuff
