@@ -53,27 +53,32 @@ public class Flipper{
       moveY = 70*sin(-t)+fixY;}
   }
 
- boolean collisionFH(Ball b){
-   float P1X=fixX-b.getX();
-   float P1Y=fixY-b.getY();
-   float P2X=moveX-b.getX();
-   float P2Y=moveY-b.getY();
-   float MinusX=P2X-P1X;
-   float MinusY=P2Y-P1Y;
-   float a = MinusX*MinusX+MinusY*MinusY;
-   float d = 2*(MinusX*P1X+MinusY*P1Y);
-   float c = P1X*P1X+P1Y*P1Y-100;
-   float delta = d*d - (4*a*c);
-   if(delta ==0){
-     return true;}
-     return false;
+boolean collisionFH(Ball b){
+   float a = dist(fixX,fixY,b.getX(),b.getY());
+    println ("a: " +a );
+   float d = dist(moveX,moveY,b.getX(),b.getY());
+   println("b: "+d);
+   float c = 70.0;
+   float s = (a+d+c)/2;
+   float Area = sqrt(s*(s-a)*(s-d)*(s-c));
+   println("area: "+ Area);
+   float h = (2*Area)/c;
+   println("height: " + h);
+   if(h<=10){
+     if(left){
+       if(fixX>b.getX() && moveX<b.getX()){
+         return true;}}
+     else{
+       if(fixX<b.getX() && moveX>b.getX()){
+         return true;}}
+   }
+    return false;
  }
    
  
   void collisionF(Ball b){
     if(collisionFH(b)){
-      b.changeSpeed();
-    }
+      b.changeSpeed();}
   }
     
  

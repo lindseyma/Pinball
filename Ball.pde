@@ -35,6 +35,7 @@ class Ball{ //<>//
         ay=-ay;
       }
       
+      
       void launchUp(float power){
         power=power/50;
         ay-=power;

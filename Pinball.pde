@@ -17,7 +17,7 @@ Wall l = new Wall(120, 120, 120, 590);
 Wall r = new Wall(120, 590, 390, 590);
 Wall d = new Wall(390, 120, 390, 590);
 //testttt
-Wall diagTest = new Wall(200, 200, 300, 300);
+//Wall diagTest = new Wall(200, 200, 300, 300);
 CurveWall t = new CurveWall(120, 500, 120, 120, 390, 120, 500, 500);
 //120, 120, 205, 150, 285, 150, 390, 120
   
@@ -25,8 +25,8 @@ Bouncer bc = new Bouncer(200,260, 25);
 Bouncer bc2= new Bouncer(270,300,25);
 //Bouncer bc2 = new Bouncer(260,200);
   
-Flipper rightF = new Flipper(175, 550, 215, 580,false);
-Flipper leftF = new Flipper(330, 550, 220, 580,true);
+Flipper rightF = new Flipper(175, 550, 215, 575,false);
+Flipper leftF = new Flipper(330, 550, 265, 575,true);
   
 void draw(){
 //text(score, 20, 10);
@@ -50,17 +50,17 @@ void draw(){
     r.display();
     l.display();
     
-    diagTest.display();
-    diagTest.walling(b);
+   // diagTest.display();
+   // diagTest.walling(b);
     
     //t.walling(b);
     d.walling(b);
     r.walling(b);
     l.walling(b);
-    bc.display();
-    bc.CollisionH(b);
-    bc2.display();
-    bc2.CollisionH(b);
+    //bc.display();
+   // bc.CollisionH(b);
+    //bc2.display();
+    //bc2.CollisionH(b);
     if(gameBegin){
       b.bounce();}
     if(launched && launchNum==0){

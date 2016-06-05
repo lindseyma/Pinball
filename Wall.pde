@@ -39,7 +39,7 @@ public class Wall{
       }
       
       //System.out.println("height" + height);
-      System.out.println("heroA" + heroA);
+     // System.out.println("heroA" + heroA);
     }
   }
   
