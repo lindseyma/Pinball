@@ -92,10 +92,12 @@ void draw(){
       }
       if(key == 'f'){
         rightF.increaseT();
+        rightF.setUpF(true);
       
       }
       if(key == 'j'){
         leftF.increaseT();
+        leftF.setUpF(true);
       
       }
    }
@@ -107,9 +109,11 @@ void draw(){
       }
       if(key == 'f'){
         rightF.setFlipped(true);
+        rightF.setUpF(false);
       }
       if(key == 'j'){
         leftF.setFlipped(true);
+        leftF.setUpF(false);
       }
   }
   

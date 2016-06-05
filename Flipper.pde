@@ -7,6 +7,7 @@ public class Flipper{
   float t;
   boolean left;
   boolean flipped;
+  boolean up;
   
   public Flipper(float a, float b,float c,float d,boolean l){
     fixX=a;
@@ -16,6 +17,7 @@ public class Flipper{
     t=-0.35;
     left = l;
     flipped = false;
+    up=false;
   }
   
   boolean getFlipped(){
@@ -24,6 +26,9 @@ public class Flipper{
   
   void setFlipped(boolean j){
     flipped = j;
+  }
+  void setUpF(boolean k){
+    up=k;
   }
   
   void display(){
@@ -78,8 +83,11 @@ boolean collisionFH(Ball b){
  
   void collisionF(Ball b){
     if(collisionFH(b)){
-      b.changeSpeed();}
-  }
+
+        b.changeSpeed();}
+
+    }
+  
     
  
 }

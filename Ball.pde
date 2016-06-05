@@ -36,6 +36,11 @@ class Ball{ //<>//
       }
       
       
+     void roll(){
+       ax=-ax;
+       ay=-(ay/1.20);
+     }
+      
       void launchUp(float power){
         power=power/50;
         ay-=power;
