@@ -33,7 +33,7 @@ Flipper rightF = new Flipper(175, 550, 215, 575,false);
 Flipper leftF = new Flipper(330, 550, 265, 575,true);
   
 void draw(){
-  System.out.println(screen);
+  //System.out.println(screen);
 //text(score, 20, 10);
 //fill(50);
     if(screen == 0){
@@ -57,10 +57,22 @@ void menu(){
   fill(10, 102, 0);
   textSize(50);
   text("Play", 185, 400);
+  System.out.println(mouseX + ", " + mouseY);
 }
 
+void mousePressed(){
+  if(screen == 0 &&
+     mouseX > 190 &&
+     mouseY > 364 &&
+     mouseX < 283 &&
+     mouseY < 412){
+       screen = 1;
+     }
+}
+     
 
 void gameScreen(){
+  background(209,209,209);
     b.display();
     
     //wall stuff
