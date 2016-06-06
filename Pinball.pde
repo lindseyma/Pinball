@@ -39,7 +39,7 @@ Flipper rightF = new Flipper(165, 500,70,false);
 Flipper leftF = new Flipper(340, 500,70,true);
   
 void draw(){
-  println(playing);
+  //println(lives);
   //System.out.println(screen);
 //text(score, 20, 10);
 //fill(50);
@@ -171,6 +171,7 @@ void gameScreen(){
       
       
     display();
+    println("debug" + lives);
     if( lives == 0){
       screen = 2;
     }
@@ -252,10 +253,14 @@ void gameScreen(){
        //println("endTime:" + launchTime);
      }
    }
-  
+ 
   void display(){
-    text(score, 20, 30);
-    text(lives, 20, 50);
+    fill(0);
+    textSize(20);     
+    String scoreDisp = "score:" + score;
+    text(scoreDisp, 20, 30);
+    String lifeDisp = "lives:" + lives;
+    text(lifeDisp, 20, 50);
     fill(0);
   }
   
