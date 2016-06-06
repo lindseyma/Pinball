@@ -2,7 +2,7 @@
     size(500, 700); 
     score = 0;
     menu();
-    initGame();
+    //initGame();
 }
 
 int score = 0;
@@ -15,6 +15,8 @@ int lives;
 
 public void initGame(){
   lives = 3;
+  playing = false;
+  screen = 1;
 }
 
 //Ball b;
@@ -48,15 +50,26 @@ void draw(){
     if(screen == 1){
         gameScreen();
     }
-    /*if(screen == 2){
+    if(screen == 2){
         endScreen();
-    }*/
+    }
     //background(209,209,209);
     noFill();
     //System.out.println(mouseY);
     //rect(100,100,300,500);
 }
 
+void endScreen(){
+  background(209,209,209);
+  textSize(100);
+  fill(0, 102, 153);
+  text("GAME", 110, 300);
+  text("OVER", 120, 400);
+  fill(10, 102, 0);
+  textSize(50);
+  text("Play Again", 200, 650);
+  //System.out.println(mouseX + ", " + mouseY);
+}
 void menu(){
   textSize(100);
   fill(0, 102, 153);
@@ -64,7 +77,7 @@ void menu(){
   fill(10, 102, 0);
   textSize(50);
   text("Play", 185, 400);
-  System.out.println(mouseY);
+  
 }
 
 void mousePressed(){
@@ -74,11 +87,20 @@ void mousePressed(){
      mouseX < 283 &&
      mouseY < 412){
        //playing = true;
+       lives = 3;
        screen = 1;
+     }
+     if(screen == 2 &&
+      mouseX > 205 &&
+     mouseY > 617 &&
+     mouseX < 447 &&
+     mouseY < 652){
+       initGame();
      }
 }
      
      void initLife(){
+       playing = false;
        b.x = 380;
        b.y = 580;
        b.ax=1;
@@ -131,7 +153,10 @@ void gameScreen(){
      if(leftF.getFlipped()){
        leftF.decreaseT();}
     display();
-    if(b.y > 690){
+    if( lives == 0){
+      screen = 2;
+    }
+    if(b.y > 700){
       lives--;
       playing = false;
       initLife();
@@ -163,7 +188,7 @@ void gameScreen(){
   
   void keyReleased(){
       if(key == ' '){
-          println("space");
+          //println("space");
           launched=true;
           startTime();
       }
@@ -201,6 +226,7 @@ void gameScreen(){
   
   void display(){
     text(score, 20, 30);
+    text(lives, 20, 50);
     fill(0);
   }
   
