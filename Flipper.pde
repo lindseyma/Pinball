@@ -60,15 +60,15 @@ public class Flipper{
 
 boolean collisionFH(Ball b){
    float a = dist(fixX,fixY,b.getX(),b.getY());
-    println ("a: " +a );
+    //println ("a: " +a );
    float d = dist(moveX,moveY,b.getX(),b.getY());
-   println("b: "+d);
+   //println("b: "+d);
    float c = 70.0;
    float s = (a+d+c)/2;
    float Area = sqrt(s*(s-a)*(s-d)*(s-c));
-   println("area: "+ Area);
+   //println("area: "+ Area);
    float h = (2*Area)/c;
-   println("height: " + h);
+   //println("height: " + h);
    if(h<=10){
      if(left){
        if(fixX>b.getX() && moveX<b.getX()){

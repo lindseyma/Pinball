@@ -18,15 +18,15 @@ public class DiagonalWall{
     
   boolean collisionDiaH(Ball b){
     float a = dist(ax,ay,b.getX(),b.getY());
-    println ("a: " +a );
+    //println ("a: " +a );
    float d = dist(bx,by,b.getX(),b.getY());
-   println("b: "+d);
+   //println("b: "+d);
    float c = 70.0;
    float s = (a+d+c)/2;
    float Area = sqrt(s*(s-a)*(s-d)*(s-c));
-   println("area: "+ Area);
+   //println("area: "+ Area);
    float h = (2*Area)/c;
-   println("height: " + h);
+   //println("height: " + h);
    if(h<=10){
      if(left){
        if(ax>b.getX() && bx<b.getX()){

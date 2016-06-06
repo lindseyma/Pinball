@@ -1,5 +1,6 @@
-class Ball{ //<>//
+class Ball{ //<>// //<>//
 
+    //public int lives;
     private float x;
     private float y;
     private float ax;
@@ -25,7 +26,7 @@ class Ball{ //<>//
         ay=-ay;}
     }*/
       void bounce(){
-        y+=ay;
+        y+=ay; //<>//
         x+=ax; //<>//
         ay+=weight;
       }
@@ -47,6 +48,9 @@ class Ball{ //<>//
         y+=ay;
         x-=0.15;
         ay+=weight;
+        playing = true;
+        
+       // println("working");
       }
 
       void display(){

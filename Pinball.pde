@@ -2,15 +2,20 @@
     size(500, 700); 
     score = 0;
     menu();
+    initGame();
 }
 
 int score = 0;
-int lives = 3;
 boolean launched = false;
-int launchNum=0;
+//int launchNum=0;
 boolean gameBegin = false;
 int screen = 0;
 
+int lives;
+
+public void initGame(){
+  lives = 3;
+}
 
 //Ball b;
 Ball b = new Ball();
@@ -33,6 +38,7 @@ Flipper rightF = new Flipper(175, 550, 215, 575,false);
 Flipper leftF = new Flipper(330, 550, 265, 575,true);
   
 void draw(){
+  println(playing);
   //System.out.println(screen);
 //text(score, 20, 10);
 //fill(50);
@@ -47,6 +53,7 @@ void draw(){
     }*/
     //background(209,209,209);
     noFill();
+    //System.out.println(mouseY);
     //rect(100,100,300,500);
 }
 
@@ -57,7 +64,7 @@ void menu(){
   fill(10, 102, 0);
   textSize(50);
   text("Play", 185, 400);
-  System.out.println(mouseX + ", " + mouseY);
+  System.out.println(mouseY);
 }
 
 void mousePressed(){
@@ -66,10 +73,21 @@ void mousePressed(){
      mouseY > 364 &&
      mouseX < 283 &&
      mouseY < 412){
+       //playing = true;
        screen = 1;
      }
 }
      
+     void initLife(){
+       b.x = 380;
+       b.y = 580;
+       b.ax=1;
+       b.ay=-1;
+       time = 0;
+       //println("init");
+     }
+       
+boolean playing;
 
 void gameScreen(){
   background(209,209,209);
@@ -94,9 +112,11 @@ void gameScreen(){
    // bc.CollisionH(b);
     //bc2.display();
     //bc2.CollisionH(b);
-    if(gameBegin){
-      b.bounce();}
-    if(launched && launchNum==0){
+    if(playing){
+      b.bounce();
+    }
+    //if(launched && launchNum==0){
+      if(launched){
       b.launchUp(time);
       endTime();
     }
@@ -111,6 +131,11 @@ void gameScreen(){
      if(leftF.getFlipped()){
        leftF.decreaseT();}
     display();
+    if(b.y > 690){
+      lives--;
+      playing = false;
+      initLife();
+    }
 }
 
 
@@ -119,9 +144,10 @@ void gameScreen(){
   float time=0;
   void keyPressed(){
      if(key == ' '){
-         if(time<25){
+         if(time<25 && !playing){
+           //println("working?");
          time++;}
-         println("time:" +time);
+         //println("time:" +time);
       }
       if(key == 'f'){
         rightF.increaseT();
@@ -137,6 +163,7 @@ void gameScreen(){
   
   void keyReleased(){
       if(key == ' '){
+          println("space");
           launched=true;
           startTime();
       }
@@ -165,10 +192,10 @@ void gameScreen(){
    
    void endTime(){
      if(millis()-launchTime >500){
-       gameBegin=true;
+       //gameBegin=true;
        launched=false;
-       launchNum++;
-       println("endTime:" + launchTime);
+       //launchNum++;
+       //println("endTime:" + launchTime);
      }
    }
   
