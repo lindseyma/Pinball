@@ -21,23 +21,23 @@ public void initGame(){
 
 //Ball b;
 Ball b = new Ball();
-//Wall t = new Wall(120, 120, 390, 120);
-Wall l = new Wall(120, 120, 120, 590);
-DiagonalWall bottomLeft = new DiagonalWall(120, 590, 235, 640, true);
-//DiagonalWall bottomRight = new DiagonalWall(270, 640, 390, 590, false);
-DiagonalWall bottomRight = new DiagonalWall(390, 590, 270, 640, false);
-Wall r = new Wall(390, 120, 390, 590);
-//testttt
-//Wall diagTest = new Wall(200, 200, 300, 300);
-CurveWall t = new CurveWall(120, 500, 120, 120, 390, 120, 500, 500);
-//120, 120, 205, 150, 285, 150, 390, 120
-  
-Bouncer bc = new Bouncer(200,260, 25);
-Bouncer bc2= new Bouncer(270,300,25);
-//Bouncer bc2 = new Bouncer(260,200);
-  
-Flipper rightF = new Flipper(175, 550, 215, 575,false);
-Flipper leftF = new Flipper(330, 550, 265, 575,true);
+Wall l = new Wall(120, 150, 120, 590);
+DiagonalWall bottomLeft = new DiagonalWall(120, 590, 225, 640, true);
+DiagonalWall bottomRight = new DiagonalWall(390, 590, 280, 640, false);
+DiagonalWall topLeft = new DiagonalWall(150,120,120,150,true);
+DiagonalWall topRight = new DiagonalWall(360,120,390,150,false);
+Wall r = new Wall(390, 150, 390, 590);
+Wall t = new Wall(150, 120,360,120);  
+Bouncer bc = new Bouncer(150,300, 15,color(255,204,0));
+Bouncer bc2= new Bouncer(360,300,15,color(255,204,0));
+Bouncer red1= new Bouncer(255,180,20,color(225,51,0));
+Bouncer green2= new Bouncer(255,420,20,color(153,204,0));
+Bouncer yellow3=new Bouncer(255,300,20,color(255,204,0));
+
+Flipper smRight = new Flipper(155,200,50,false);
+Flipper smLeft = new Flipper(360,200,50,true);
+Flipper rightF = new Flipper(165, 500,70,false);
+Flipper leftF = new Flipper(340, 500,70,true);
   
 void draw(){
   println(playing);
@@ -115,25 +115,31 @@ void gameScreen(){
   background(209,209,209);
     b.display();
     
-    //wall stuff
+
     t.display();
-    //d.display();
     r.display();
     l.display();
     bottomLeft.display();
     bottomRight.display();
-   // diagTest.display();
-   // diagTest.walling(b);
+    topLeft.display();
+    topRight.display();
     
-    //t.walling(b);
     bottomLeft.collisionDia(b);
     bottomRight.collisionDia(b);
     r.walling(b);
     l.walling(b);
-    //bc.display();
-   // bc.CollisionH(b);
-    //bc2.display();
-    //bc2.CollisionH(b);
+    t.walling(b);
+    
+    bc.display();
+    bc.CollisionH(b);
+    bc2.display();
+    bc2.CollisionH(b);
+    red1.display();
+    red1.CollisionH(b);
+    green2.display();
+    green2.CollisionH(b);
+    yellow3.display();
+    yellow3.CollisionH(b);
     if(playing){
       b.bounce();
     }
@@ -148,10 +154,25 @@ void gameScreen(){
     leftF.flip();
     leftF.collisionF(b);
     rightF.collisionF(b);
+      
+    smRight.display();
+    smLeft.display();
+    smRight.flip();
+    smLeft.flip();
+    smRight.collisionF(b);
+    smLeft.collisionF(b);
+    
     if(rightF.getFlipped()){
       rightF.decreaseT();}
      if(leftF.getFlipped()){
        leftF.decreaseT();}
+       
+    if(smRight.getFlipped()){
+      smRight.decreaseT();}
+    if(smLeft.getFlipped()){
+      smLeft.decreaseT();}
+      
+      
     display();
     if( lives == 0){
       screen = 2;
@@ -169,7 +190,7 @@ void gameScreen(){
   float time=0;
   void keyPressed(){
      if(key == ' '){
-         if(time<25 && !playing){
+         if(time<32 && !playing){
            //println("working?");
          time++;}
          //println("time:" +time);
@@ -177,11 +198,15 @@ void gameScreen(){
       if(key == 'f'){
         rightF.increaseT();
         rightF.setUpF(true);
+        smRight.increaseT();
+        smLeft.setUpF(true);
       
       }
       if(key == 'j'){
         leftF.increaseT();
         leftF.setUpF(true);
+        smLeft.increaseT();
+        smLeft.setUpF(true);
       
       }
    }
@@ -195,10 +220,14 @@ void gameScreen(){
       if(key == 'f'){
         rightF.setFlipped(true);
         rightF.setUpF(false);
+        smRight.setFlipped(true);
+        smRight.setUpF(false);
       }
       if(key == 'j'){
         leftF.setFlipped(true);
         leftF.setUpF(false);
+        smLeft.setFlipped(true);
+        smLeft.setUpF(false);
       }
   }
   

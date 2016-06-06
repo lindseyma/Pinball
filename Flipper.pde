@@ -4,17 +4,23 @@ public class Flipper{
   float fixY;
   float moveX;
   float moveY;
+  float size;
   float t;
   boolean left;
   boolean flipped;
   boolean up;
   
-  public Flipper(float a, float b,float c,float d,boolean l){
+  public Flipper(float a, float b,float si,boolean l){
     fixX=a;
     fixY=b;
-    moveX=c;
-    moveY=d;
     t=-0.35;
+    size = si;
+    if(l){
+      moveX = -size*cos(-t)+fixX;
+      moveY = size*sin(-t)+fixY;}
+    else{
+      moveX = size*cos(-t)+fixX;
+      moveY = size*sin(-t)+fixY;}
     left = l;
     flipped = false;
     up=false;
@@ -39,7 +45,7 @@ public class Flipper{
   
   void increaseT(){
     if(t<0.50){
-      t+=0.10;}
+      t+=0.15;}
   }
   
   void decreaseT(){
@@ -51,11 +57,11 @@ public class Flipper{
   }
   void flip(){
    if(left){
-      moveX = -70*cos(-t)+fixX;
-      moveY = 70*sin(-t)+fixY;}
+      moveX = -size*cos(-t)+fixX;
+      moveY = size*sin(-t)+fixY;}
     else{
-      moveX = 70*cos(-t)+fixX;
-      moveY = 70*sin(-t)+fixY;}
+      moveX = size*cos(-t)+fixX;
+      moveY = size*sin(-t)+fixY;}
   }
 
 boolean collisionFH(Ball b){
@@ -63,7 +69,7 @@ boolean collisionFH(Ball b){
     //println ("a: " +a );
    float d = dist(moveX,moveY,b.getX(),b.getY());
    //println("b: "+d);
-   float c = 70.0;
+   float c = size;
    float s = (a+d+c)/2;
    float Area = sqrt(s*(s-a)*(s-d)*(s-c));
    //println("area: "+ Area);
@@ -84,7 +90,7 @@ boolean collisionFH(Ball b){
   void collisionF(Ball b){
     if(collisionFH(b)){
 
-        b.changeSpeed();}
+        b.changeSpeedDia(left);}
 
     }
   

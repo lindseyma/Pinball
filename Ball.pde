@@ -32,7 +32,6 @@ class Ball{ //<>// //<>//
       }
        
       void changeSpeed(){
-        ax=-ax;
         ay=-ay;
       }
       
@@ -62,6 +61,7 @@ class Ball{ //<>// //<>//
       }
 
       void display(){
+      fill(255,255,255);
       ellipse(x, y, 20, 20);    
 }
     
