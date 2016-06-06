@@ -203,8 +203,11 @@ void gameScreen(){
         leftF.increaseT();
         leftF.setUpF(true);
         smLeft.increaseT();
-        smLeft.setUpF(true);
-      
+        smLeft.setUpF(true);      
+      }
+      if(key == 'r'){
+        playing = false;
+        screen = 2;
       }
    }
   
