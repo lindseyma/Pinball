@@ -29,10 +29,10 @@ public class DiagonalWall{
    //println("height: " + h);
    if(h<=10){
      if(left){
-       if(ax<b.getX() && bx>b.getX()){
+       if(ax>b.getX() && bx<b.getX()){
          return true;}}
      else{
-       if(ax>b.getX() && bx<b.getX()){
+       if(ax<b.getX() && bx>b.getX()){
          return true;}}
    }
     return false;
@@ -40,7 +40,6 @@ public class DiagonalWall{
   
   void collisionDia(Ball b){
     if(collisionDiaH(b)){
-
         b.changeSpeedDia(left);}
 
     }

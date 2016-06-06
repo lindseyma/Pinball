@@ -22,17 +22,16 @@ public void initGame(){
 //Ball b;
 Ball b = new Ball();
 Wall l = new Wall(120, 150, 120, 590);
-DiagonalWall bottomLeft = new DiagonalWall(120, 590, 225, 640, true);
-DiagonalWall bottomRight = new DiagonalWall(390, 590, 280, 640, false);
+DiagonalWall bottomLeft = new DiagonalWall(120, 590, 225, 640, false);
+DiagonalWall bottomRight = new DiagonalWall(390, 590, 280, 640, true);
 DiagonalWall topLeft = new DiagonalWall(150,120,120,150,true);
 DiagonalWall topRight = new DiagonalWall(360,120,390,150,false);
 Wall r = new Wall(390, 150, 390, 590);
 Wall t = new Wall(150, 120,360,120);  
 Bouncer bc = new Bouncer(150,300, 15,color(255,204,0));
-Bouncer bc2= new Bouncer(360,300,15,color(255,204,0));
 Bouncer red1= new Bouncer(255,180,20,color(225,51,0));
-Bouncer green2= new Bouncer(255,420,20,color(153,204,0));
-Bouncer yellow3=new Bouncer(255,300,20,color(255,204,0));
+Bouncer green2= new Bouncer(245,410,20,color(153,204,0));
+Bouncer yellow3=new Bouncer(300,300,20,color(255,204,0));
 
 Flipper smRight = new Flipper(155,200,50,false);
 Flipper smLeft = new Flipper(360,200,50,true);
@@ -132,8 +131,6 @@ void gameScreen(){
     
     bc.display();
     bc.CollisionH(b);
-    bc2.display();
-    bc2.CollisionH(b);
     red1.display();
     red1.CollisionH(b);
     green2.display();
