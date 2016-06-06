@@ -33,6 +33,7 @@ class Ball{ //<>// //<>//
        
       void changeSpeed(){
         ay=-ay;
+        ax=-ax;
       }
       
       void changeSpeedDia(boolean left){
