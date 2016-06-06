@@ -126,8 +126,8 @@ void gameScreen(){
    // diagTest.walling(b);
     
     //t.walling(b);
-    bottomLeft.collisionDia();
-    bottomRight.collisionDia();
+    bottomLeft.collisionDia(b);
+    bottomRight.collisionDia(b);
     r.walling(b);
     l.walling(b);
     //bc.display();

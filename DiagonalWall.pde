@@ -21,7 +21,7 @@ public class DiagonalWall{
     //println ("a: " +a );
    float d = dist(bx,by,b.getX(),b.getY());
    //println("b: "+d);
-   float c = 70.0;
+   float c = dist(ax,ay,bx,by);
    float s = (a+d+c)/2;
    float Area = sqrt(s*(s-a)*(s-d)*(s-c));
    //println("area: "+ Area);
@@ -29,19 +29,19 @@ public class DiagonalWall{
    //println("height: " + h);
    if(h<=10){
      if(left){
-       if(ax>b.getX() && bx<b.getX()){
+       if(ax<b.getX() && bx>b.getX()){
          return true;}}
      else{
-       if(ax<b.getX() && bx>b.getX()){
+       if(ax>b.getX() && bx<b.getX()){
          return true;}}
    }
     return false;
   }
   
-  void collisionDia(){
+  void collisionDia(Ball b){
     if(collisionDiaH(b)){
 
-        b.changeSpeed();}
+        b.changeSpeedDia(left);}
 
     }
   

@@ -36,6 +36,14 @@ class Ball{ //<>// //<>//
         ay=-ay;
       }
       
+      void changeSpeedDia(boolean left){
+        if(left){
+          ax=-1;
+          ay=-ay;}
+        else{
+          ax=1;
+          ay=-ay;}
+      }
       
      void roll(){
        ax=-ax;
