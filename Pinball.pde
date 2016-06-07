@@ -28,15 +28,15 @@ DiagonalWall bottomLeft = new DiagonalWall(120, 590, 225, 640, false);
 DiagonalWall bottomRight = new DiagonalWall(390, 590, 280, 640, true);
 DiagonalWall topLeft = new DiagonalWall(150,120,120,150,false);
 DiagonalWall topRight = new DiagonalWall(360,120,390,150,true);
+DiagonalWall moving = new DiagonalWall(150,320,180,320,true);
 Wall r = new Wall(390, 150, 390, 590);
 Wall t = new Wall(150, 120,360,120);  
-Bouncer bc = new Bouncer(150,300, 15,color(255,204,0));
-Bouncer red1= new Bouncer(255,180,20,color(225,51,0));
-Bouncer green2= new Bouncer(245,410,20,color(153,204,0));
-Bouncer yellow3=new Bouncer(300,300,20,color(255,204,0));
+Bouncer red1= new Bouncer(160,200,25,color(225,51,0));
+Bouncer green2= new Bouncer(355,200,25,color(153,204,0));
+Bouncer yellow3=new Bouncer(255,180,25,color(255,204,0));
 
-Flipper smRight = new Flipper(155,200,50,false);
-Flipper smLeft = new Flipper(360,200,50,true);
+Flipper smRight = new Flipper(155,300,50,false);
+Flipper smLeft = new Flipper(360,300,50,true);
 Flipper rightF = new Flipper(165, 500,70,false);
 Flipper leftF = new Flipper(340, 500,70,true);
   
@@ -127,6 +127,7 @@ void gameScreen(){
     bottomRight.display();
     topLeft.display();
     topRight.display();
+    moving.display();
     
     bottomLeft.collisionDia(b);
     bottomRight.collisionDia(b);
@@ -134,8 +135,6 @@ void gameScreen(){
     l.walling(b);
     t.walling(b);
     
-    bc.display();
-    bc.CollisionH(b);
     red1.display();
     red1.CollisionH(b);
     green2.display();

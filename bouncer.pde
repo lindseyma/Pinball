@@ -15,8 +15,7 @@ class Bouncer{
 
 
   boolean Collision(Ball b){
-    float d = sqrt(sq((x-b.x))+(sq(y-b.y)));
-    System.out.println(d);
+    float d = dist(x,y,b.getX(),b.getY());
     if(d > rad + 10){
       return false;
     }
@@ -27,8 +26,10 @@ class Bouncer{
   
   void CollisionH(Ball b){
     if(Collision(b) == true){
-      b.changeSpeed();
+      b.Move();
       score+=1;
+      if(dist(x,y,b.getX(),b.getY())>rad+30){
+        b.changeSpeed();}
     }
   }
     

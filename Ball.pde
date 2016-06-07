@@ -31,9 +31,15 @@ class Ball{ //<>// //<>//
         ay+=weight;
       }
        
-      void changeSpeed(){
+      void Move(){
         ay=-ay;
         ax=-ax;
+        
+      }
+      
+      void changeSpeed(){
+        ay=0.95*-ay;
+        ax=0.95*-ax;
       }
       
       void changeSpeedDia(boolean left){

@@ -75,7 +75,7 @@ boolean collisionFH(Ball b){
    //println("area: "+ Area);
    float h = (2*Area)/c;
    //println("height: " + h);
-   if(h<=10){
+   if(h<=15){
      if(left){
        if(fixX>b.getX() && moveX<b.getX()){
          return true;}}
