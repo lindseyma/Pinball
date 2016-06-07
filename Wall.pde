@@ -22,7 +22,7 @@ public class Wall{
         }
     }
     if(ay == by){
-        if(b.y - 10 <= ay && b.x < bx && b.x > ax){
+        if(b.y -20 <= ay && b.x < bx && b.x > ax){
           b.ay = -b.ay;
         }
     }
