@@ -5,6 +5,7 @@
     //initGame();
 }
 
+int hiscore = 0;
 int score = 0;
 boolean launched = false;
 //int launchNum=0;
@@ -14,6 +15,7 @@ int screen = 0;
 int lives;
 
 public void initGame(){
+  score = 0;
   lives = 3;
   playing = false;
   screen = 1;
@@ -64,6 +66,9 @@ void endScreen(){
   fill(0, 102, 153);
   text("GAME", 110, 300);
   text("OVER", 120, 400);
+  textSize(30);
+  String hiDisp = "High Score: " + hiscore;
+  text(hiDisp, 30, 50);
   fill(10, 102, 0);
   textSize(50);
   text("Play Again", 200, 650);
@@ -173,6 +178,9 @@ void gameScreen(){
     display();
     println("debug" + lives);
     if( lives == 0){
+      if(score>hiscore){
+        hiscore = score;
+      }
       screen = 2;
     }
     if(b.y > 700){
