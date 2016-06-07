@@ -12,6 +12,7 @@ public class DiagonalWall{
     by=d;
     left = t;
   }
+
   
   void display(){
     line(ax,ay,bx,by);}

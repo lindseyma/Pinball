@@ -24,11 +24,11 @@ public void initGame(){
 //Ball b;
 Ball b = new Ball();
 Wall l = new Wall(120, 150, 120, 590);
-DiagonalWall bottomLeft = new DiagonalWall(120, 590, 225, 640, false);
-DiagonalWall bottomRight = new DiagonalWall(390, 590, 280, 640, true);
+DiagonalWall bottomLeft = new DiagonalWall(120, 590, 210, 640, false);
+DiagonalWall bottomRight = new DiagonalWall(390, 590, 295, 640, true);
 DiagonalWall topLeft = new DiagonalWall(150,120,120,150,false);
 DiagonalWall topRight = new DiagonalWall(360,120,390,150,true);
-DiagonalWall moving = new DiagonalWall(150,320,180,320,true);
+Platform moving = new Platform(130,360,180,360);
 Wall r = new Wall(390, 150, 390, 590);
 Wall t = new Wall(150, 120,360,120);  
 Bouncer red1= new Bouncer(160,200,25,color(225,51,0));
@@ -37,8 +37,8 @@ Bouncer yellow3=new Bouncer(255,180,25,color(255,204,0));
 
 Flipper smRight = new Flipper(155,300,50,false);
 Flipper smLeft = new Flipper(360,300,50,true);
-Flipper rightF = new Flipper(165, 500,70,false);
-Flipper leftF = new Flipper(340, 500,70,true);
+Flipper rightF = new Flipper(165, 500,60,false);
+Flipper leftF = new Flipper(340, 500,60,true);
   
 void draw(){
   //println(lives);
@@ -131,6 +131,9 @@ void gameScreen(){
     
     bottomLeft.collisionDia(b);
     bottomRight.collisionDia(b);
+    moving.CollisionP(b);
+    moving.moveTo();
+    moving.moveBack();
     r.walling(b);
     l.walling(b);
     t.walling(b);
