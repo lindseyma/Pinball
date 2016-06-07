@@ -178,7 +178,7 @@ void gameScreen(){
       
       
     display();
-    println("debug" + lives);
+    //println("debug" + lives);
     if( lives == 0){
       if(score>hiscore){
         hiscore = score;
@@ -271,6 +271,7 @@ void gameScreen(){
     text(scoreDisp, 20, 30);
     String lifeDisp = "lives:" + lives;
     text(lifeDisp, 20, 50);
+    text("Press \'R\' to restart the game", 20, 70);
     fill(0);
   }
   
